@@ -1,0 +1,20 @@
+<main>
+	<h1>Myriad of dice</h1>
+
+	<label>Number of dice:</label><br/>
+	<input #slider type="range" min="1" max="{{maxDiceNumber}}"  value="{{diceNumber}}" (input)="setDiceNr(slider.value)" />
+	<input class="short" type="number" readonly value="{{slider.value}}"/><br/>
+
+	<dice-man [diceNumber]="diceNumber"></dice-man><br/>
+
+	<button (click)="roll()">Roll</button><br/>
+
+	<p>
+		<label>Number of rolls:</label><br/>
+		<input type="number" readonly value="{{ rollCount }}"/><br/>
+
+		<label>Average per die per roll:</label><br/>
+		<input type="number" readonly value="{{ rollCount ? total/rollCount : '-'}}"/><br/>
+	</p>
+
+</main>
